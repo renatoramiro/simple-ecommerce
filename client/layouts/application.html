@@ -1,0 +1,47 @@
+<template name="application">
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ pathFor 'home' }}">Minha Loja</a>
+        </div>
+        <!-- <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h2>Seja bem vindo a <i>Minha Loja</i></h2>
+        <p>A primeira loja da Paraíba desenvolvida em Meteor</p>
+      </div>
+    </div>
+
+    <div class="container">
+      {{> yield }}
+    </div> <!-- /container -->
+
+    <footer>
+      <hr>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-4">
+          <p>&copy; Minha Loja 2014</p>
+        </div>
+      </div>
+    </footer>
+</template>
