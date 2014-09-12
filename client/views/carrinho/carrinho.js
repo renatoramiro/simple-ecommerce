@@ -7,5 +7,11 @@ Template.carrinho.events({
 		e.preventDefault();
 		var cart = Session.get('carts');
 		Carts.update({_id: cart}, {$set: { products: []}});
+	},
+
+	'click #removeProduct': function (e, t) {
+		e.preventDefault();
+		var cart = Session.get('carts');
+		Meteor.call('updateRemoveProductCart', cart, this._id);
 	}
 });

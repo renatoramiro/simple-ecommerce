@@ -8,6 +8,7 @@
           <th>Nome</th>
           <th>Preço</th>
           <th>Quantidade</th>
+          <th></th>
         </thead>
         <tbody>
           {{#each cart.products}}
@@ -15,6 +16,9 @@
             <td>{{name}}</td>
             <td>R$ {{price}}</td>
             <td>{{quantity}}</td>
+            <td>
+              <a href="#" id="removeProduct" class="btn btn-danger btn-xs" title="Remover item do carrinho"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
           </tr>
           {{/each}}
         </tbody>

@@ -5,5 +5,9 @@ Meteor.methods({
 
   updateCart: function(cartId, productData){
     Carts.update({_id: cartId}, { $push: { products: productData } });
-  }
+  },
+
+  updateRemoveProductCart: function (cartId, productId) {
+    Carts.update({_id: cartId, 'products._id': productId}, { $pull: { products: { _id: productId } } });
+  },
 });
