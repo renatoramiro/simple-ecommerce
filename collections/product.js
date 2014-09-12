@@ -12,6 +12,10 @@ Schemas.Products = new SimpleSchema({
     decimal: true
   },
 
+  quantity: {
+    type: Number
+  },
+
   createdAt: {
     type: Date,
     denyUpdate: true,
