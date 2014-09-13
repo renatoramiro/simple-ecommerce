@@ -3,6 +3,7 @@ accounts-password@1.0.1
 aldeed:autoform@2.0.1
 aldeed:collection2@2.0.0
 aldeed:simple-schema@1.0.0
+amplify@1.0.0
 application-configuration@1.0.1
 autoupdate@1.0.6
 benjaminrh:user-session@0.2.0
@@ -64,6 +65,7 @@ spacebars@1.0.1
 srp@1.0.0
 templating@1.0.5
 tracker@1.0.2
+u2622:persistent-session@0.1.4
 ui@1.0.2
 underscore@1.0.0
 webapp@1.0.3

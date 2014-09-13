@@ -9,6 +9,7 @@ Template.detailsProduct.events({
 
     if(Session.get('carts') == null) {
       Session.set('carts', Carts.insert({}));
+      console.log('Insert Cart');
     } else {
       Session.set('carts', Session.get('carts'));
     }
