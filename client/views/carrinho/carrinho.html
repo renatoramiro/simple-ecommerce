@@ -14,7 +14,7 @@
           {{#each products}}
           <tr>
             <td>{{name}}</td>
-            <td>R$ {{price}}</td>
+            <td>R$ {{ duasCasas price}}</td>
             <td>{{quantity}}</td>
             <td>
               <a href="#" id="removeProduct" class="btn btn-danger btn-xs" title="Remover item do carrinho"><i class="glyphicon glyphicon-remove"></i></a>
@@ -23,6 +23,8 @@
           {{/each}}
         </tbody>
       </table>
+      <p class="text-right lead text-success"><strong>Total: R$ {{total}}</strong></p>
+      <hr>
       <p class="text-right">
         <a href="#" class="btn btn-danger" id="clearCart"><i class="glyphicon glyphicon-remove"></i> Esvaziar Carrinho</a>
         <a href="{{ pathFor 'home'}}" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> Finalizar Compra</a>

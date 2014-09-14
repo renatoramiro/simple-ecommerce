@@ -33,4 +33,4 @@ Schemas.Cart = new SimpleSchema({
       }
     }
   },
-})
+});
