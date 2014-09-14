@@ -7,21 +7,18 @@ Template.detailsProduct.events({
     var product = Products.findOne({_id: this._id});
     var productData = { _id: product._id, name: product.name, price: product.price, quantity: 1}
 
-    if(Session.get('carts') == null) {
+    if(Session.get('carts') == null || Session.get('carts') == undefined) {
       Session.set('carts', Carts.insert({}));
-      console.log('Insert Cart');
     } else {
       Session.set('carts', Session.get('carts'));
     }
 
-    var cart = Carts.findOne({_id: Session.get('carts')});
+    var cart = Session.get('carts');
 
-    if(Carts.findOne({_id: cart._id, 'products._id': product._id})){
-      console.log('Mais UM');
-      Meteor.call('updateIncCart', cart._id, product._id);
+    if(Carts.findOne({_id: cart, 'products._id': product._id})){
+      Meteor.call('updateIncCart', cart, product._id);
     } else {
-      console.log('Primeiro');
-      Meteor.call('updateCart', cart._id, productData);
+      Meteor.call('updateCart', cart, productData);
     }
 
     Router.go('carrinho');
