@@ -1,3 +1,3 @@
 UI.registerHelper('duasCasas', function (numero) {
-    return numero.toFixed(2);
+    return accounting.formatMoney(numero, "R$ ", 2, ".", ",");
 });

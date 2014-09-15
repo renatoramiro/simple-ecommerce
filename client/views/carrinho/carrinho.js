@@ -12,7 +12,7 @@ Template.carrinho.helpers({
 		_.each(Carts.findOne({_id: Session.get('carts')}).products, function (product) {
 			total += product.price * product.quantity;
 		});
-		return total.toFixed(2);
+		return total;
 	}
 });
 
