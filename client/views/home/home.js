@@ -7,8 +7,8 @@ Template.detailsProduct.events({
     var product = Products.findOne({_id: this._id});
     var productData = { _id: product._id, name: product.name, price: product.price, quantity: 1}
 
-    if(Session.get('carts') == null || Session.get('carts') == undefined) {
-      Session.set('carts', Carts.insert({}));
+    if(Session.get('carts') == null || Session.get('carts') == undefined || Carts.findOne({_id: Session.get('carts')}) == undefined) {
+        Session.set('carts', Carts.insert({}));
     } else {
       Session.set('carts', Session.get('carts'));
     }
