@@ -14,7 +14,7 @@
           <ul class="nav navbar-nav">
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <!-- {{#if currentUser}}
+            {{#if currentUser}}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuário logado <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -24,9 +24,9 @@
               </ul>
             </li>
             {{else}}
-            <li><a href="{{ pathFor 'entrySignIn'}}">Entrar</a></li>
-            <li><a href="{{ pathFor 'entrySignUp'}}">Registrar</a></li>
-            {{/if}} -->
+            <li><a href="{{ pathFor 'login'}}" class="">Entrar</a></li>
+            <li><a href="{{ pathFor 'register'}}">Registrar</a></li>
+            {{/if}}
             <li><a href="{{ pathFor 'carrinho' }}">Carrinho {{> amountCart}}</a></li>
           </ul>
         </div><!--/.nav-collapse -->

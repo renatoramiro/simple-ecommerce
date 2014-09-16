@@ -19,6 +19,14 @@ Router.map(function(){
     path: 'carrinho',
   });
 
+  this.route('login', {
+    path: 'sign-in'
+  });
+
+  this.route('register', {
+    path: 'sign-up'
+  });
+
   this.route('dashboard', {
     path: 'dashboard',
   });
