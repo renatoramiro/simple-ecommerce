@@ -18,4 +18,8 @@ Router.map(function(){
   this.route('carrinho', {
     path: 'carrinho',
   });
+
+  this.route('dashboard', {
+    path: 'dashboard',
+  });
 });

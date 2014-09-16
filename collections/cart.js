@@ -4,7 +4,12 @@ Schemas = {}
 
 Schemas.Cart = new SimpleSchema({
   products: {
-    type: [Object]
+    type: [Object],
+    optional: true
+  },
+
+  'products.$._id': {
+    type: String
   },
 
   'products.$.name': {
@@ -34,3 +39,5 @@ Schemas.Cart = new SimpleSchema({
     }
   },
 });
+
+Carts.attachSchema(Schemas.Cart);

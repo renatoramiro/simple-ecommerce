@@ -14,7 +14,6 @@ blaze@2.0.0
 boilerplate-generator@1.0.0
 callback-hook@1.0.0
 check@1.0.0
-coffeescript@1.0.3
 ctl-helper@1.0.3
 ctl@1.0.1
 ddp@1.0.8
@@ -24,7 +23,6 @@ email@1.0.2
 fastclick@1.0.0-cordova1
 follower-livedata@1.0.1
 geojson-utils@1.0.0
-handlebars@1.0.0
 html-tools@1.0.0
 htmljs@1.0.0-cordova1
 http@1.0.5
@@ -34,12 +32,9 @@ iron:core@0.3.4
 iron:dynamic-template@0.4.1
 iron:layout@0.4.1
 iron:router@0.9.3
-joshowens:accounts-entry@0.9.0
-joshowens:simple-form@0.1.8
 jquery@1.0.0
 json@1.0.0
 lepozepo:accounting@1.0.0
-less@1.0.8
 livedata@1.0.9
 localstorage@1.0.0
 logging@1.0.2-cordova2
@@ -51,9 +46,7 @@ mizzao:bootstrap-3@3.2.0
 mobile-status-bar@1.0.0-cordova3
 mongo-livedata@1.0.4
 mongo@1.0.5
-mrt:accounts-t9n@0.0.13
 mrt:moment@2.6.0
-mrt:underscore-string-latest@2.3.3
 npm-bcrypt@0.7.7
 observe-sequence@1.0.2
 ordered-dict@1.0.0

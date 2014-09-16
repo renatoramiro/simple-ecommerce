@@ -8,9 +8,10 @@ insecure
 iron:router
 aldeed:collection2
 aldeed:autoform
-joshowens:accounts-entry
 mizzao:bootstrap-3
 benjaminrh:user-session
 u2622:persistent-session
 lepozepo:accounting
+accounts-password
+accounts-base
 
