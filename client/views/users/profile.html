@@ -1,10 +1,10 @@
 <template name="profile">
 	<div class="row">
 		<div class="col-md-12">
-			<h4>Minha Informações</h4>
-			<p>Nome: {{currentUser.profile.completeName}}</p>
+			<h4>Minhas Informações</h4>
+			<p><strong>Nome:</strong> {{currentUser.profile.completeName}}</p>
 			<hr>
-			<p><a href="{{ pathFor 'editProfile'}}">Editar Informações</a></p>
+			<p><a href="{{ pathFor 'editProfile'}}" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i> Editar Informações</a></p>
 		</div>
 	</div>
 </template>
