@@ -1,0 +1,15 @@
+<template name="editProfile">
+	<div class="row">
+		<div class="col-md-8">
+			<h4>Editar minhas informações</h4>
+			<form role="form" id="editProfileForm">
+			  <div class="form-group">
+			    <label for="edit-completeName">Nome Completo</label>
+			    <input type="text" class="form-control" id="edit-completeName" placeholder="Digite seu nome" value="{{profile.completeName}}">
+			  </div>
+			  <hr>
+			  <button type="submit" class="btn btn-default">Atualizar</button> <a href="{{ pathFor 'profile'}}" class="btn btn-danger">Cancelar</a>
+			</form>
+		</div>
+	</div>
+</template>

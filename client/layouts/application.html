@@ -14,19 +14,10 @@
           <ul class="nav navbar-nav">
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            {{#if currentUser}}
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuário logado <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="{{ pathFor 'dashboard'}}"><i class="glyphicon glyphicon-paperclip"></i> Dashboard</a></li>
-                <li class="divider"></li>
-                <li><a href="{{ pathFor 'entrySignOut'}}"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
-              </ul>
-            </li>
-            {{else}}
-            <li><a href="{{ pathFor 'login'}}" class="">Entrar</a></li>
-            <li><a href="{{ pathFor 'register'}}">Registrar</a></li>
-            {{/if}}
+						{{#if currentUser}}
+						<li><a href="{{ pathFor 'profile' }}">Meus Dados</a></li>
+						{{/if}}
+						{{> loginButtons }} <!-- here -->
             <li><a href="{{ pathFor 'carrinho' }}">Carrinho {{> amountCart}}</a></li>
           </ul>
         </div><!--/.nav-collapse -->

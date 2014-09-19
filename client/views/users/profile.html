@@ -1,0 +1,10 @@
+<template name="profile">
+	<div class="row">
+		<div class="col-md-12">
+			<h4>Minha Informações</h4>
+			<p>Nome: {{currentUser.profile.completeName}}</p>
+			<hr>
+			<p><a href="{{ pathFor 'editProfile'}}">Editar Informações</a></p>
+		</div>
+	</div>
+</template>

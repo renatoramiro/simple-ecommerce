@@ -19,15 +19,12 @@ Router.map(function(){
     path: 'carrinho',
   });
 
-  this.route('login', {
-    path: 'sign-in'
+  this.route('profile', {
+    path: '/profile',
   });
 
-  this.route('register', {
-    path: 'sign-up'
-  });
-
-  this.route('dashboard', {
-    path: 'dashboard',
+  this.route('editProfile', {
+    path: '/profile/edit',
+    data: function() { return Meteor.user(); }
   });
 });

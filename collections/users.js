@@ -3,6 +3,8 @@ Schema = {};
 Schema.UserProfile = new SimpleSchema({
     completeName: {
       type: String,
+			label: 'Complete Name',
+			optional: true
     },
 });
 

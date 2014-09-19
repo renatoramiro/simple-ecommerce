@@ -10,4 +10,8 @@ Meteor.methods({
   updateRemoveProductCart: function (cartId, productId) {
     Carts.update({_id: cartId, 'products._id': productId}, { $pull: { products: { _id: productId } } });
   },
+
+  editProfile: function (userId, completeName) {
+  	Meteor.users.update({_id: userId}, {$set: {'profile.completeName': completeName}});
+  }
 });
