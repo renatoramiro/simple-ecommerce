@@ -13,5 +13,10 @@ Meteor.methods({
 
   editProfile: function (userId, completeName) {
   	Meteor.users.update({_id: userId}, {$set: {'profile.completeName': completeName}});
+  },
+
+  newOrder: function (userId, products) {
+    var user = Meteor.users.findOne({_id: userId});
+    return Orders.insert({userId: user._id, userCompleteName: user.profile.completeName, products: products});
   }
 });

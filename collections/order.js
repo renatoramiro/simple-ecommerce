@@ -25,6 +25,14 @@ Schemas.Order = new SimpleSchema({
     type: Number
   },
 
+  userId: {
+    type: String
+  },
+
+  userCompleteName: {
+    type: String
+  },
+
   createdAt: {
     type: Date,
     denyUpdate: true,

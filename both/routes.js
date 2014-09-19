@@ -27,4 +27,19 @@ Router.map(function(){
     path: '/profile/edit',
     data: function() { return Meteor.user(); }
   });
+
+  this.route('purchases', {
+    path: '/purchases',
+    waitOn: function(){ return Meteor.subscribe('purchases', Meteor.userId()); },
+  });
+
+  this.route('showPurchase', {
+    path: '/purchase/:_id',
+    waitOn: function(){ return Meteor.subscribe('showPurchase', Meteor.userId(), this.params._id); },
+    data: function(){ return Orders.findOne({userId: Meteor.userId(), _id: this.params._id}); }
+  });
+
+  this.route('checkout', {
+    path: '/checkout',
+  });
 });

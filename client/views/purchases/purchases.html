@@ -1,0 +1,21 @@
+<template name="purchases">
+	<h1>Minhas Compras</h1>
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th>ID</th>
+	      <th>Feita em</th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{{#each purchases}}
+	    <tr>
+	      <td>{{_id}}</td>
+	      <td>{{createdAt}}</td>
+	      <td><a href="{{ pathFor 'showPurchase' }}" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-eye-open"></i> Ver Compra</a></td>
+	    </tr>
+	    {{/each}}
+	  </tbody>
+	</table>
+</template>

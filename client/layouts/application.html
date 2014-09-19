@@ -16,6 +16,7 @@
           <ul class="nav navbar-nav navbar-right">
 						{{#if currentUser}}
 						<li><a href="{{ pathFor 'profile' }}">Meus Dados</a></li>
+            <li><a href="{{ pathFor 'purchases' }}">Minhas Compras</a></li>
 						{{/if}}
 						{{> loginButtons }} <!-- here -->
             <li><a href="{{ pathFor 'carrinho' }}">Carrinho {{> amountCart}}</a></li>

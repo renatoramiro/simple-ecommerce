@@ -23,6 +23,37 @@ Schema.User = new SimpleSchema({
   "emails.$.verified": {
     type: Boolean
   },
+
+  // orders: {
+  //   type: [Object],
+  //   optional: true
+  // },
+
+  // "orders.$._id": {
+  //   type: String
+  // },
+
+  // "orders.$._products": {
+  //   type: [Object]
+  // },
+
+  // "orders.$._products.$._id": {
+  //   type: String
+  // },
+
+  // "orders.$._products.$.name": {
+  //   type: String
+  // },
+
+  // "orders.$._products.$.price": {
+  //   type: Number,
+  //   decimal: true
+  // },
+
+  // "orders.$._products.$.quantity": {
+  //   type: Number
+  // },
+
   createdAt: {
     type: Date
   },
