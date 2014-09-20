@@ -1,6 +1,6 @@
 Template.purchases.helpers({
 	purchases: function () {
-		return Orders.find({"user._id": Meteor.userId()});
+		return Orders.find({userId: Meteor.userId()});
 	}
 });
 

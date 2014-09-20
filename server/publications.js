@@ -11,11 +11,7 @@ Meteor.publish('cart', function(){
 });
 
 Meteor.publish('purchases', function (userId) {
-	return Orders.find({'user._id': userId});
-});
-
-Meteor.publish('allPurchases', function () {
-	return Orders.find();
+	return Orders.find({userId: userId});
 });
 
 Meteor.publish('showPurchase', function (userId, orderId) {
