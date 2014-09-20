@@ -1,7 +1,7 @@
 Template.purchases.helpers({
 	purchases: function () {
 		return Orders.find({userId: Meteor.userId()});
-	}
+	},
 });
 
 // Template.showPurchase.helpers({
