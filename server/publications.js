@@ -6,8 +6,8 @@ Meteor.publish('detailsProduct', function(productId){
   return Products.find({_id: productId});
 });
 
-Meteor.publish('cart', function(){
-  return Carts.find();
+Meteor.publish('cart', function(cartId){
+  return Carts.find({_id: cartId});
 });
 
 Meteor.publish('purchases', function (userId) {

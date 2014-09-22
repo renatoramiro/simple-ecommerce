@@ -1,6 +1,6 @@
 Router.configure({
   layoutTemplate: 'application',
-  waitOn: function(){return [Meteor.subscribe('products'), Meteor.subscribe('cart')]},
+  waitOn: function(){return [Meteor.subscribe('products'), Meteor.subscribe('cart', Session.get('carts'))]},
 });
 
 Router.map(function(){
