@@ -8,7 +8,6 @@ insecure
 iron:router
 aldeed:collection2
 aldeed:autoform
-mizzao:bootstrap-3
 benjaminrh:user-session
 u2622:persistent-session
 lepozepo:accounting
@@ -17,4 +16,5 @@ accounts-base
 ian:accounts-ui-bootstrap-3
 bruz:bootstrap3-errors
 mrt:moment
+pinglamb:bootstrap3
 
