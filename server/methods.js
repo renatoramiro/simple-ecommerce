@@ -17,6 +17,9 @@ Meteor.methods({
 
   newOrder: function (userId, products) {
     var user = Meteor.users.findOne({_id: userId});
+    _.map(products, function(product){
+      Products.update({_id: product._id}, {$inc: {quantity: -(product.quantity)}});
+    });
     return Orders.insert({userId: user._id, userCompleteName: user.profile.completeName, products: products});
   }
 });

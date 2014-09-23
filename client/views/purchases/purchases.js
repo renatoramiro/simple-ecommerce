@@ -1,6 +1,6 @@
 Template.purchases.helpers({
 	purchases: function () {
-		return Orders.find({userId: Meteor.userId()}, {sort: {createdAt: 1}});
+		return Orders.find({userId: Meteor.userId()}, {sort: {createdAt: -1}});
 	},
 });
 
