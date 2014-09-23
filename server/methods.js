@@ -11,6 +11,11 @@ Meteor.methods({
     Carts.update({_id: cartId, 'products._id': productId}, { $pull: { products: { _id: productId } } });
   },
 
+  updateQuantityProductCart: function(cartId, productId, newQuantity){
+    console.log(newQuantity);
+    Carts.update({_id: cartId, 'products._id': productId}, { $set: { 'products.$.quantity': newQuantity} });
+  },
+
   editProfile: function (userId, completeName) {
   	Meteor.users.update({_id: userId}, {$set: {'profile.completeName': completeName}});
   },
