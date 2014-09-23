@@ -7,7 +7,7 @@ Template.purchases.helpers({
 Template.showPurchase.helpers({
 	total: function () {
 		var total = 0.0;
-		_.each(Orders.findOne({_id: this._id}).products, function (product) {
+		_.map(this.products, function (product) {
 			total += product.price * product.quantity;
 		});
 		return total;

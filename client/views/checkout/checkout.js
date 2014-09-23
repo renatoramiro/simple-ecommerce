@@ -16,11 +16,15 @@ Template.checkout.events({
 	'click a#close-purchase': function (e, t) {
 		e.preventDefault();
 		var carrinho = Carts.findOne({_id: Session.get('carts')});
+		var erros = 0;
 		_.map(carrinho.products, function (product) {
 			if(product.quantity > Products.findOne({_id: product._id}).quantity){
 				Router.go('carrinho');
+				erros += 1;
 				Errors.throw(product.name + " ultrapassou a quantidade no estoque. Quantidade máxima: " + Products.findOne({_id: product._id}).quantity);
-			} else {
+			}
+
+			if (erros < 1) {
 				Meteor.call('newOrder', Meteor.userId(), carrinho.products, function (error, result) {
 					if (error) {
 						Errors.throw(error.message);
@@ -31,7 +35,6 @@ Template.checkout.events({
 					Router.go('showPurchase', {_id: result});
 				});
 			}
-
 		});
 	}
 });

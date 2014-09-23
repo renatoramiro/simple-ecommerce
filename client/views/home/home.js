@@ -2,6 +2,16 @@ Template.home.products = function(){
   return Products.find();
 };
 
+Template.detailsProduct.helpers({
+  comEstoque: function(){
+    if(this.quantity >= 1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+});
+
 Template.detailsProduct.events({
   'click #cart': function(){
     var product = Products.findOne({_id: this._id});
