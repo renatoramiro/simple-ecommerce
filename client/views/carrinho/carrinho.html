@@ -17,7 +17,7 @@
             <td>{{ duasCasas price}}</td>
             <td>{{quantity}}</td>
             <td>
-              <a href="#" id="removeProduct" class="btn btn-danger btn-xs" title="Remover item do carrinho"><i class="glyphicon glyphicon-remove"></i></a>
+              <a href="#" id="removeProduct" class="btn btn-danger btn-xs" title="Remover item do carrinho"><i class="fa fa-times"></i></a>
             </td>
           </tr>
           {{/each}}
@@ -26,15 +26,15 @@
       <p class="text-right lead text-success"><strong>Total: {{duasCasas total}}</strong></p>
       <hr>
       <p class="text-right">
-        <a href="#" class="btn btn-danger" id="clearCart"><i class="glyphicon glyphicon-remove"></i> Esvaziar Carrinho</a>
-        <a href="{{ pathFor 'checkout'}}" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> Finalizar Compra</a>
+        <a href="#" class="btn btn-danger" id="clearCart"><i class="fa fa-times"></i> Esvaziar Carrinho</a>
+        <a href="{{ pathFor 'checkout'}}" class="btn btn-success"><i class="fa fa-check-circle"></i> Finalizar Compra</a>
       </p>
       {{else}}
       <h3>Carrinho está vazio</h3>
       {{/if}}
       <hr>
       <p class="text-left">
-        <a href="{{ pathFor 'home'}}" class="btn btn-default"><i class="glyphicon glyphicon-circle-arrow-left"></i> Continuar Comprando</a>
+        <a href="{{ pathFor 'home'}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Continuar Comprando</a>
       </p>
     </div>
   </div>
