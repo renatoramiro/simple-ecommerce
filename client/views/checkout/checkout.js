@@ -23,18 +23,18 @@ Template.checkout.events({
 				erros += 1;
 				Errors.throw(product.name + " ultrapassou a quantidade no estoque. Quantidade máxima: " + Products.findOne({_id: product._id}).quantity);
 			}
-
-			if (erros < 1) {
-				Meteor.call('newOrder', Meteor.userId(), carrinho.products, function (error, result) {
-					if (error) {
-						Errors.throw(error.message);
-					}
-					var cart = Session.get('carts');
-					Carts.remove({_id: cart});
-					Session.set('carts', null);
-					Router.go('showPurchase', {_id: result});
-				});
-			}
 		});
+
+		if (erros < 1) {
+			Meteor.call('newOrder', Meteor.userId(), carrinho.products, function (error, result) {
+				if (error) {
+					Errors.throw(error.message);
+				}
+				var cart = Session.get('carts');
+				Carts.remove({_id: cart});
+				Session.set('carts', null);
+				Router.go('showPurchase', {_id: result});
+			});
+		}
 	}
 });
