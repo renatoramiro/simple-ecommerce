@@ -3,6 +3,7 @@
 		<div class="col-md-12">
 			<h4>Minhas Informações</h4>
 			<p><strong>Nome:</strong> {{currentUser.profile.completeName}}</p>
+			<p><strong>Limite de Crédito:</strong> {{ duasCasas currentUser.profile.creditLimit }}</p>
 			<hr>
 			<p><a href="{{ pathFor 'editProfile'}}" class="btn btn-default btn-xs"><i class="fa fa-pencil-square-o"></i> Editar Informações</a></p>
 		</div>

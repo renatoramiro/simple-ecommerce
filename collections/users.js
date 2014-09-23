@@ -6,6 +6,12 @@ Schema.UserProfile = new SimpleSchema({
 			label: 'Complete Name',
 			optional: true
     },
+
+    creditLimit: {
+      type: Number,
+      label: 'Limite de Crédito',
+      decimal: true
+    }
 });
 
 Schema.User = new SimpleSchema({
