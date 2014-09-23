@@ -20,11 +20,16 @@ Meteor.methods({
   	Meteor.users.update({_id: userId}, {$set: {'profile.completeName': completeName}});
   },
 
-  newOrder: function (userId, products) {
+  newOrder: function (userId, products, opcaoPagamento) {
     var user = Meteor.users.findOne({_id: userId});
+    var total = 0.0;
     _.map(products, function(product){
+      total += product.quantity * product.price;
       Products.update({_id: product._id}, {$inc: {quantity: -(product.quantity)}});
     });
-    return Orders.insert({userId: user._id, userCompleteName: user.profile.completeName, products: products});
+    if (opcaoPagamento === 'Limite de Crédito') {
+      Meteor.users.update({_id: user._id}, {$inc: { 'profile.creditLimit': -(total)}});
+    }
+    return Orders.insert({userId: user._id, userCompleteName: user.profile.completeName, formaDePagamento: opcaoPagamento, products: products});
   }
 });

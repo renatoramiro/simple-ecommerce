@@ -22,9 +22,29 @@
       </table>
       <p class="text-right lead text-success"><strong>Total: {{duasCasas total}}</strong></p>
       <hr>
-      <p class="text-right">
-        <a href="" id="close-purchase" class="btn btn-default btn-primary"><i class="fa fa-usd"></i> Fechar Compra</a>
-      </p>
+      <div class="row">
+        <div class="col-sm-6">
+          <p class="text-left">
+            <strong>Pagar com: </strong>
+            {{#if limiteDeCreditoValido}}
+            <label class="radio-inline">
+              <input type="radio" name="opcaoPagamento" id="credito" value="Limite de Crédito"><i class="fa fa-ticket"></i> Limite de Crédito
+            </label>
+            {{/if}}
+            <label class="radio-inline">
+              <input type="radio" name="opcaoPagamento" id="boleto" value="Boleto Bancário" checked><i class="fa fa-file-pdf-o"></i> Boleto Bancário
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="opcaoPagamento" id="cheque" value="Cheque"><i class="fa fa-list-alt"></i> Cheque
+            </label>
+          </p>
+        </div>
+        <div class="col-sm-6">
+          <p class="text-right">
+            <a href="" id="close-purchase" class="btn btn-default btn-primary"><i class="fa fa-usd"></i> Fechar Compra</a>
+          </p>
+        </div>
+      </div>
       {{else}}
       <h2>Carrinho está vazio.</h2>
       <hr>

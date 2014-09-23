@@ -25,6 +25,10 @@ Schemas.Order = new SimpleSchema({
     type: Number
   },
 
+  formaDePagamento: {
+    type: String
+  },
+
   userId: {
     type: String
   },

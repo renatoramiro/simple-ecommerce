@@ -9,6 +9,14 @@ Template.checkout.helpers({
 			total += product.price * product.quantity;
 		});
 		return total;
+	},
+
+	limiteDeCreditoValido: function(){
+		if(Meteor.user().profile.creditLimit > 0){
+			return true;
+		} else {
+			return false;
+		}
 	}
 });
 
@@ -16,6 +24,7 @@ Template.checkout.events({
 	'click a#close-purchase': function (e, t) {
 		e.preventDefault();
 		var carrinho = Carts.findOne({_id: Session.get('carts')});
+		var opcaoPagamento = t.find('input[name=opcaoPagamento]:checked').value;
 		var erros = 0;
 		_.map(carrinho.products, function (product) {
 			if(product.quantity > Products.findOne({_id: product._id}).quantity){
@@ -26,7 +35,8 @@ Template.checkout.events({
 		});
 
 		if (erros < 1) {
-			Meteor.call('newOrder', Meteor.userId(), carrinho.products, function (error, result) {
+			console.log(opcaoPagamento);
+			Meteor.call('newOrder', Meteor.userId(), carrinho.products, opcaoPagamento, function (error, result) {
 				if (error) {
 					Errors.throw(error.message);
 				}
