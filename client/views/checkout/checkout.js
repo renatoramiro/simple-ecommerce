@@ -26,6 +26,7 @@ Template.checkout.events({
 		var carrinho = Carts.findOne({_id: Session.get('carts')});
 		var opcaoPagamento = t.find('input[name=opcaoPagamento]:checked').value;
 		var erros = 0;
+		// Validar quantidade do produto em estoque
 		_.map(carrinho.products, function (product) {
 			if(product.quantity > Products.findOne({_id: product._id}).quantity){
 				Router.go('carrinho');
@@ -34,8 +35,14 @@ Template.checkout.events({
 			}
 		});
 
+		// Validar limite de crédito
+		if (totalProducts(carrinho.products) > Meteor.user().profile.creditLimit && opcaoPagamento === 'Limite de Crédito') {
+			Router.go('checkout');
+			erros += 1;
+			Errors.throw("Você não possui Limite de Crédito suficiente.");
+		}
+
 		if (erros < 1) {
-			console.log(opcaoPagamento);
 			Meteor.call('newOrder', Meteor.userId(), carrinho.products, opcaoPagamento, function (error, result) {
 				if (error) {
 					Errors.throw(error.message);

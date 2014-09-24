@@ -64,6 +64,7 @@ retry@1.0.0
 routepolicy@1.0.1
 service-configuration@1.0.1
 session@1.0.1
+sewdn:masked-input@1.0.6
 sha@1.0.0
 spacebars-compiler@1.0.2
 spacebars@1.0.1
