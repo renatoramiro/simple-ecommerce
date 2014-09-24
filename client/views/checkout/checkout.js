@@ -35,23 +35,30 @@ Template.checkout.events({
 			}
 		});
 
+		var total = 0.0;
+		_.each(Carts.findOne({_id: Session.get('carts')}).products, function (product) {
+			total += product.price * product.quantity;
+		});
+
 		// Validar limite de crédito
-		if (totalProducts(carrinho.products) > Meteor.user().profile.creditLimit && opcaoPagamento === 'Limite de Crédito') {
+		if ((total > Meteor.user().profile.creditLimit) && (opcaoPagamento == 'Limite de Crédito')) {
 			Router.go('checkout');
 			erros += 1;
 			Errors.throw("Você não possui Limite de Crédito suficiente.");
 		}
 
+		console.log('Quantidade de erros: ' + erros);
+
 		if (erros < 1) {
-			Meteor.call('newOrder', Meteor.userId(), carrinho.products, opcaoPagamento, function (error, result) {
-				if (error) {
-					Errors.throw(error.message);
-				}
-				var cart = Session.get('carts');
-				Carts.remove({_id: cart});
-				Session.set('carts', null);
-				Router.go('showPurchase', {_id: result});
-			});
+			// Meteor.call('newOrder', Meteor.userId(), carrinho.products, opcaoPagamento, function (error, result) {
+			// 	if (error) {
+			// 		Errors.throw(error.message);
+			// 	}
+			// 	var cart = Session.get('carts');
+			// 	Carts.remove({_id: cart});
+			// 	Session.set('carts', null);
+			// 	Router.go('showPurchase', {_id: result});
+			// });
 		}
 	}
 });

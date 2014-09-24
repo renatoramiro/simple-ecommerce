@@ -24,20 +24,28 @@
       <hr>
       <div class="row">
         <div class="col-sm-6">
-          <p class="text-left">
-            <strong>Pagar com: </strong><br>
-            {{#if limiteDeCreditoValido}}
-            <label class="radio-inline">
-              <input type="radio" name="opcaoPagamento" id="credito" value="Limite de Crédito"><i class="fa fa-ticket"></i> Limite de Crédito
-            </label>
-            {{/if}}
-            <label class="radio-inline">
-              <input type="radio" name="opcaoPagamento" id="boleto" value="Boleto Bancário" checked><i class="fa fa-file-pdf-o"></i> Boleto Bancário
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="opcaoPagamento" id="cheque" value="Cheque"><i class="fa fa-list-alt"></i> Cheque
-            </label>
-          </p>
+          <div class="panel panel-danger">
+            <div class="panel-heading"><p class="text-left lead text-danger"><strong>Escolha uma opção de pagamento: </strong></p></div>
+            <div class="panel-body">
+              <p>
+                {{#if limiteDeCreditoValido}}
+                <label class="radio-inline text-success">
+                  <strong><input type="radio" name="opcaoPagamento" id="credito" value="Limite de Crédito" checked><i class="fa fa-ticket"></i> Limite de Crédito</strong>
+                </label>
+                <label class="radio-inline text-primary">
+                  <strong><input type="radio" name="opcaoPagamento" id="boleto" value="Boleto Bancário"><i class="fa fa-file-pdf-o"></i> Boleto Bancário</strong>
+                </label>
+                {{else}}
+                <label class="radio-inline text-primary">
+                  <strong><input type="radio" name="opcaoPagamento" id="boleto" value="Boleto Bancário" checked><i class="fa fa-file-pdf-o"></i> Boleto Bancário</strong>
+                </label>
+                {{/if}}
+                <label class="radio-inline">
+                  <strong><input type="radio" name="opcaoPagamento" id="cheque" value="Cheque"><i class="fa fa-list-alt"></i> Cheque</strong>
+                </label>
+              </p>
+            </div>
+          </div>
         </div>
         <div class="col-sm-6">
           <p class="text-right">
