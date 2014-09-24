@@ -12,7 +12,6 @@ Meteor.methods({
   },
 
   updateQuantityProductCart: function(cartId, productId, newQuantity){
-    console.log(newQuantity);
     Carts.update({_id: cartId, 'products._id': productId}, { $set: { 'products.$.quantity': newQuantity} });
   },
 

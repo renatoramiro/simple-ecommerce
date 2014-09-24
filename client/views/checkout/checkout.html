@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-sm-6">
           <p class="text-left">
-            <strong>Pagar com: </strong>
+            <strong>Pagar com: </strong><br>
             {{#if limiteDeCreditoValido}}
             <label class="radio-inline">
               <input type="radio" name="opcaoPagamento" id="credito" value="Limite de Crédito"><i class="fa fa-ticket"></i> Limite de Crédito
@@ -41,7 +41,8 @@
         </div>
         <div class="col-sm-6">
           <p class="text-right">
-            <a href="" id="close-purchase" class="btn btn-default btn-primary"><i class="fa fa-usd"></i> Fechar Compra</a>
+            <a href="{{ pathFor 'carrinho'}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Voltar para o carrinho</a>
+            <a href="" id="close-purchase" class="btn btn-default btn-primary"><i class="fa fa-dot-circle-o"></i> Fechar Compra</a>
           </p>
         </div>
       </div>
