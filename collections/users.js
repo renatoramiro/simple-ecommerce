@@ -30,36 +30,6 @@ Schema.User = new SimpleSchema({
     type: Boolean
   },
 
-  // orders: {
-  //   type: [Object],
-  //   optional: true
-  // },
-
-  // "orders.$._id": {
-  //   type: String
-  // },
-
-  // "orders.$._products": {
-  //   type: [Object]
-  // },
-
-  // "orders.$._products.$._id": {
-  //   type: String
-  // },
-
-  // "orders.$._products.$.name": {
-  //   type: String
-  // },
-
-  // "orders.$._products.$.price": {
-  //   type: Number,
-  //   decimal: true
-  // },
-
-  // "orders.$._products.$.quantity": {
-  //   type: Number
-  // },
-
   createdAt: {
     type: Date
   },
@@ -79,9 +49,9 @@ Schema.User = new SimpleSchema({
   // You can't mix and match adding with and without a group since
   // you will fail validation in some cases.
   // roles: {
-  //     type: Object,
-  //     optional: true,
-  //     blackbox: true
+  //   type: Object,
+  //   optional: true,
+  //   blackbox: true
   // }
 });
 
