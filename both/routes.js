@@ -11,7 +11,7 @@ Router.map(function(){
 
   this.route('detailsProduct', {
     path: '/products/:_id',
-    waitOn: function(){ return Meteor.subscribe('detailsProducts', this.params._id)},
+    waitOn: function(){ return Meteor.subscribe('detailsProduct', this.params._id)},
     data: function(){ return Products.findOne({_id: this.params._id})}
   });
 
@@ -61,5 +61,29 @@ Router.map(function(){
     layoutTemplate: 'adminLayout',
     waitOn: function(){ return Meteor.subscribe('users'); },
     data: function() { return Meteor.users.findOne({_id: this.params._id}, {fields: {profile: 1}}); },
+  });
+
+  this.route('listProducts', {
+    path: '/admin/products',
+    layoutTemplate: 'adminLayout',
+  });
+
+  this.route('showProduct', {
+    path: '/admin/product/:_id',
+    waitOn: function(){ return Meteor.subscribe('detailsProduct', this.params._id)},
+    data: function(){ return Products.findOne({_id: this.params._id})},
+    layoutTemplate: 'adminLayout',
+  });
+
+  this.route('newProduct', {
+    path: '/admin/products/new',
+    layoutTemplate: 'adminLayout',
+  });
+
+  this.route('editProduct', {
+    path: '/admin/products/edit/:_id',
+    waitOn: function(){ return Meteor.subscribe('detailsProduct', this.params._id)},
+    data: function(){ return Products.findOne({_id: this.params._id})},
+    layoutTemplate: 'adminLayout',
   });
 });

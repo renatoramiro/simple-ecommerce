@@ -1,0 +1,27 @@
+<template name="listProducts">
+	<h2>Lista de Produtos</h2>
+	<p><a href="{{ pathFor 'newProduct'}}" class="btn btn-default btn-xs"><i class="fa fa-plus"></i> Adicionar Produto</a></p>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>Nome</th>
+	      <th>Preço</th>
+	      <th>Estoque</th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{{#each products}}
+	    <tr>
+	      <td>{{name}}</td>
+	      <td>{{ duasCasas price}}</td>
+	      <td>{{quantity}}</td>
+	      <td>
+	      	<a href="{{ pathFor 'showProduct'}}">Ver</a>
+	      	<a href="{{ pathFor 'editProduct'}}" class="btn btn-xs btn-default"><i class="fa fa-edit"></i> Editar</a>
+	      </td>
+	    </tr>
+	    {{/each}}
+	  </tbody>
+	</table>
+</template>
