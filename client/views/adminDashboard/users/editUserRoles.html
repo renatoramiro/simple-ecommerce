@@ -1,0 +1,26 @@
+<template name="editUserRoles">
+	<h2>Editando Permissão <small>{{profile.completeName}}</small></h2>
+	<p class="lead">Permissão Atual: {{profile.permissao}}</p>
+	<hr>
+	<form role="form" id="editRoles">
+		<div class="radio">
+		  <label>
+		    <input type="radio" name="roles" value="admin"> Admin
+		  </label>
+	  </div>
+
+	  <div class="radio">
+		  <label>
+		    <input type="radio" name="roles" value="cliente"> Cliente
+		  </label>
+	  </div>
+
+	  <div class="radio">
+		  <label>
+		    <input type="radio" name="roles" value="vendedor"> Vendedor
+		  </label>
+		</div>
+		<hr>
+	  <button type="submit" class="btn btn-default"><i class="fa fa-floppy-o"></i> Atualizar</button> <a href="{{ pathFor 'showUser' }}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
+	</form>
+</template>

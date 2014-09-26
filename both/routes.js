@@ -42,4 +42,24 @@ Router.map(function(){
   this.route('checkout', {
     path: '/checkout',
   });
+
+  this.route('dashboard', {
+    path: '/admin/dashboard',
+    layoutTemplate: 'adminLayout',
+    waitOn: function(){ return Meteor.subscribe('users'); },
+  });
+
+  this.route('showUser', {
+    path: '/admin/users/:_id',
+    layoutTemplate: 'adminLayout',
+    waitOn: function(){ return Meteor.subscribe('showUser', this.params._id); },
+    data: function() { return Meteor.users.findOne({_id: this.params._id}); }
+  });
+
+  this.route('editUserRoles', {
+    path: '/admin/users/roles/:_id/edit',
+    layoutTemplate: 'adminLayout',
+    waitOn: function(){ return Meteor.subscribe('users'); },
+    data: function() { return Meteor.users.findOne({_id: this.params._id}, {fields: {profile: 1}}); },
+  });
 });

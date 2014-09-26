@@ -30,5 +30,9 @@ Meteor.methods({
       Meteor.users.update({_id: user._id}, {$inc: { 'profile.creditLimit': -(total)}});
     }
     return Orders.insert({userId: user._id, userCompleteName: user.profile.completeName, formaDePagamento: opcaoPagamento, products: products});
-  }
+  },
+
+  updateRoleUser: function (userId, role) {
+    Meteor.users.update({_id: userId}, {$set: {'profile.permissao': role}});
+  },
 });

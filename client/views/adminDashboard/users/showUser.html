@@ -1,0 +1,15 @@
+<template name="showUser">
+	<h2>Detalhes <small>{{profile.completeName}}</small></h2>
+	<p>
+		<strong>Email: </strong>
+		{{#each emails}}
+			{{address}}
+		{{/each}}
+	</p>
+	<p><strong>Permissão: </strong>{{profile.permissao}}</p>
+	<hr>
+	<p>
+		<a href="{{ pathFor 'editUserRoles' }}" class="btn btn-warning"><i class="fa fa-edit"></i> Editar Permissões</a>
+		<a href="{{ pathFor 'dashboard' }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Voltar para Lista de Usuários</a>
+	</p>
+</template>

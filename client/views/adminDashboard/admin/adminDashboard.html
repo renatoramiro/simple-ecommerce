@@ -1,0 +1,31 @@
+<template name="dashboard">
+	<h1>Área Administrativa</h1>
+	<hr>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>Nome</th>
+	      <th>Email</th>
+	      <th>Permissão</th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{{#each users}}
+	    <tr>
+	      <td>{{profile.completeName}}</td>
+	      <td>
+	      	{{#each emails}}
+	      	<span>{{address}}</span>
+	      	{{/each}}
+	      </td>
+	      <td>{{profile.permissao}}</td>
+	      <td>
+	      	<a href="{{ pathFor 'showUser'}}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> Ver detalhes</a>
+	      	<a href="{{ pathFor 'editUserRoles'}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar Permissão</a>
+	      </td>
+	    </tr>
+	    {{/each}}
+	  </tbody>
+	</table>
+</template>

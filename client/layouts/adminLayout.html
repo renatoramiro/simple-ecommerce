@@ -1,4 +1,4 @@
-<template name="application">
+<template name="adminLayout">
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -14,32 +14,29 @@
           <ul class="nav navbar-nav">
           </ul>
           <ul class="nav navbar-nav navbar-right">
-						{{#if currentUser}}
-						<li><a href="{{ pathFor 'profile' }}">Meus Dados</a></li>
-            <li><a href="{{ pathFor 'purchases' }}">Minhas Compras</a></li>
-						{{/if}}
-            {{#if isAdmin }}
+            {{#if isAdmin}}
             <li><a href="{{ pathFor 'dashboard' }}">Área Administrativa</a></li>
             {{/if}}
 						{{> loginButtons }} <!-- here -->
-            <li><a href="{{ pathFor 'carrinho' }}"><i class="fa fa-shopping-cart"></i> Carrinho {{> amountCart}}</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h2>Seja bem vindo a <i>Minha Loja</i></h2>
-        <p>Beta Ecommerce - Meteor</p>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="{{ pathFor 'dashboard' }}"><i class="fa fa-users"></i> Lista de Usuários</a></li>
+            <li><a href=""><i class="fa fa-database"></i> Produtos</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          {{> meteorErrors }}
+          {{> yield }}
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="container">
-      {{> meteorErrors }}
-      {{> yield }}
-    </div> <!-- /container -->
 
     <footer>
       <hr>

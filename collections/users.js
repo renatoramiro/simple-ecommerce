@@ -10,7 +10,14 @@ Schema.UserProfile = new SimpleSchema({
     creditLimit: {
       type: Number,
       label: 'Limite de Crédito',
-      decimal: true
+      decimal: true,
+      optional: true
+    },
+
+    permissao: {
+      type: String,
+      label: 'Permissão',
+      optional: true
     }
 });
 
