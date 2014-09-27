@@ -1,6 +1,12 @@
-Template.home.products = function(){
-  return Products.find();
-};
+Template.home.helpers({
+  products: function(){
+    return Products.find();
+  },
+
+  name: function(){
+    return this.name.substring(0, 15);
+  }
+});
 
 Template.detailsProduct.helpers({
   comEstoque: function(){
