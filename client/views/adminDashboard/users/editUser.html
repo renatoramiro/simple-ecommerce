@@ -1,0 +1,5 @@
+<template name="editUser">
+	<h2>Editando Usuário</h2>
+	<hr>
+	{{> quickForm collection="Meteor.users" doc=user id="updateUserForm" type="update" fields='profile.completeName, profile.creditLimit'}}
+</template>

@@ -1,5 +1,9 @@
 <template name="showProduct">
 	<h2>Detalhes do Produto</h2>
 	<hr>
-	<p>{{name}}</p>
+	<p class="lead"><strong>Nome:</strong> {{name}}</p>
+	<p class="lead"><strong>Preço:</strong> {{duasCasas price}}</p>
+	<p class="lead"><strong>Estoque:</strong> {{quantity}}</p>
+	<hr>
+	<a href="{{ pathFor 'listProducts'}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Voltar para Lista de Produtos</a>
 </template>

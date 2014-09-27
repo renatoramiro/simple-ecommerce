@@ -4,6 +4,10 @@ Router.configure({
 });
 
 Router.map(function(){
+  this.route('carrinho', {
+    path: '/error',
+  });
+
   this.route('home', {
     path: '/',
     waitOn: function(){return Meteor.subscribe('products')}
@@ -16,7 +20,7 @@ Router.map(function(){
   });
 
   this.route('carrinho', {
-    path: 'carrinho',
+    path: '/carrinho',
   });
 
   this.route('profile', {
@@ -43,6 +47,7 @@ Router.map(function(){
     path: '/checkout',
   });
 
+  // Rotas da Área Administrativa
   this.route('dashboard', {
     path: '/admin/dashboard',
     layoutTemplate: 'adminLayout',
@@ -58,6 +63,13 @@ Router.map(function(){
 
   this.route('editUserRoles', {
     path: '/admin/users/roles/:_id/edit',
+    layoutTemplate: 'adminLayout',
+    waitOn: function(){ return Meteor.subscribe('users'); },
+    data: function() { return Meteor.users.findOne({_id: this.params._id}, {fields: {profile: 1}}); },
+  });
+
+  this.route('editUser', {
+    path: '/admin/users/:_id/edit',
     layoutTemplate: 'adminLayout',
     waitOn: function(){ return Meteor.subscribe('users'); },
     data: function() { return Meteor.users.findOne({_id: this.params._id}, {fields: {profile: 1}}); },
