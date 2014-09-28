@@ -4,7 +4,7 @@ Template.home.helpers({
   },
 
   name: function(){
-    return this.name.substring(0, 15);
+    return this.name.substring(0, 13);
   }
 });
 

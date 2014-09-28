@@ -63,3 +63,39 @@ Schema.User = new SimpleSchema({
 });
 
 Meteor.users.attachSchema(Schema.User);
+
+Meteor.users.allow({
+  insert: function (userId, user) {
+    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+      return true;
+    } else {
+      return false;
+    }
+  },
+
+  update: function (userId, user) {
+    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+      return true;
+    } else {
+      return false;
+    }
+  }
+});
+
+Meteor.users.deny({
+  insert: function (userId, user) {
+    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+      return false;
+    } else {
+      return true;
+    }
+  },
+
+  update: function (userId, user) {
+    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+      return false;
+    } else {
+      return true;
+    }
+  }
+});

@@ -30,7 +30,7 @@ Template.carrinho.events({
 	'click #clearCart': function(e, t){
 		e.preventDefault();
 		var cart = Session.get('carts');
-		Carts.remove({_id: cart});
+		Meteor.call('removeCart', cart);
 		Session.set('carts', null);
 	},
 

@@ -1,4 +1,8 @@
 Meteor.methods({
+  removeCart: function (cartId, productId) {
+    Carts.remove({_id: cartId});
+  },
+
   updateIncCart: function (cartId, productId) {
     Carts.update({_id: cartId, 'products._id': productId}, { $inc: { 'products.$.quantity': 1} });
   },

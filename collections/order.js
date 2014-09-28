@@ -53,3 +53,21 @@ Schemas.Order = new SimpleSchema({
 });
 
 Orders.attachSchema(Schemas.Order);
+
+Orders.allow({
+  insert: function (userId, order) {
+    if (Meteor.user() && order.userId == userId) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
+  update: function (userId, order) {
+    if (Meteor.user() && order.userId == userId) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+})
