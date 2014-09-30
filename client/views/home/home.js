@@ -18,13 +18,20 @@ Template.detailsProduct.helpers({
   }
 });
 
+Meteor.methods({
+  createCart: function () {
+    var cartId = Carts.insert({});
+    Session.set('carts', cartId);
+  }
+});
+
 Template.detailsProduct.events({
   'click #cart': function(){
     var product = Products.findOne({_id: this._id});
     var productData = { _id: product._id, name: product.name, price: product.price, quantity: 1}
 
     if(Session.get('carts') == null || Session.get('carts') == undefined || Carts.findOne({_id: Session.get('carts')}) == undefined) {
-        Session.set('carts', Carts.insert({}));
+        Meteor.call('createCart');
     } else {
       Session.set('carts', Session.get('carts'));
     }

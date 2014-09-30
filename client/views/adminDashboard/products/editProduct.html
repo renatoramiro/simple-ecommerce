@@ -1,5 +1,14 @@
 <template name="editProduct">
 	<h2>Editando Produto</h2>
 	<hr>
-	{{> quickForm collection="Products" doc=product id="updateProductForm" type="update"}}
+	{{#autoForm collection="Products" doc=product id="updateProductForm" type="method" meteormethod="updateProduct"}}
+  <fieldset>
+    <legend>Editar Produto</legend>
+    {{> afQuickField name='name'}}
+    {{> afQuickField name='price'}}
+    {{> afQuickField name='quantity'}}
+    {{> afFieldInput name="_id" type="hidden"}}
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Update</button>
+  {{/autoForm}}
 </template>

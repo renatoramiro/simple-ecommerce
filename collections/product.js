@@ -3,6 +3,11 @@ Products = new Meteor.Collection('products');
 Schemas = {};
 
 Schemas.Products = new SimpleSchema({
+  _id: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id
+  },
+  
   name: {
     type: String,
     label: 'Nome do Produto'
@@ -39,38 +44,30 @@ Schemas.Products = new SimpleSchema({
 
 Products.attachSchema(Schemas.Products);
 
-Products.allow({
-  insert: function (userId, product) {
-    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-      return true;
-    } else {
-      return false;
-    }
-  },
+// Products.allow({
+//   insert: function (userId, product) {
+//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+//       return true;
+//     }
+//   },
 
-  update: function (userId, product) {
-    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-      return true;
-    } else {
-      return false;
-    }
-  }
-});
+//   update: function (userId, product) {
+//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+//       return true;
+//     }
+//   }
+// });
 
-Products.deny({
-  insert: function (userId, product) {
-    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-      return false;
-    } else {
-      return true;
-    }
-  },
+// Products.deny({
+//   insert: function (userId, product) {
+//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+//       return false;
+//     }
+//   },
 
-  update: function (userId, product) {
-    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-      return false;
-    } else {
-      return true;
-    }
-  }
-});
+//   update: function (userId, product) {
+//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+//       return false;
+//     }
+//   }
+// });

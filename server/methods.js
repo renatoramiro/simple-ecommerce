@@ -1,4 +1,8 @@
 Meteor.methods({
+  createCart: function () {
+    return Carts.insert({});
+  },
+
   removeCart: function (cartId, productId) {
     Carts.remove({_id: cartId});
   },
@@ -39,4 +43,12 @@ Meteor.methods({
   updateRoleUser: function (userId, role) {
     Meteor.users.update({_id: userId}, {$set: {'profile.permissao': role}});
   },
+
+  insertProduct: function (data) {
+    return Products.insert(data);
+  },
+
+  updateProduct: function (product) {
+    return Products.update({_id: product._id}, {$set: {name: product.name, price: product.price, quantity: product.quantity}});
+  }
 });
