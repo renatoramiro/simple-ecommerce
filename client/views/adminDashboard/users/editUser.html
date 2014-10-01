@@ -1,10 +1,12 @@
 <template name="editUser">
 	<h2>Editando Usuário</h2>
-	<p>
-		ID: {{user._id}}<br>
-		Nome: {{user.profile.completeName}}<br>
-		Credito: {{user.profile.creditLimit}}<br>
-	</p>
 	<hr>
-	{{> quickForm collection="Meteor.users" doc=user id="updateUserForm" type="update" fields='profile.completeName, profile.creditLimit'}}
+	{{#autoForm collection="Meteor.users" doc=user id="updateUserForm" type="method" meteormethod="atualizarUser"}}
+	<fieldset>
+		{{> afQuickField name='profile.completeName'}}
+		{{> afQuickField name='profile.creditLimit'}}
+		{{> afFieldInput name="_id" type="hidden"}}
+	</fieldset>
+	<button type="submit" class="btn btn-primary"><i class="fa fa-spinner"></i> Atualizar</button> <a href="{{ pathFor 'showUser'}}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
+	{{/autoForm}}
 </template>

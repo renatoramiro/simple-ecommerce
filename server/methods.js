@@ -28,8 +28,7 @@ Meteor.methods({
   },
 
   atualizarUser: function (user) {
-    console.log('Teste');
-    // Meteor.users.update({_id: user._id}, {$set: {'profile.completeName': user.profile.completeName, 'profile.creditLimit': user.profile.creditLimit}});
+    Meteor.users.update({_id: user._id}, {$set: {'profile.completeName': user.profile.completeName, 'profile.creditLimit': user.profile.creditLimit}});
   },
 
   newOrder: function (userId, products, opcaoPagamento) {

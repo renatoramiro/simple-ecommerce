@@ -3,7 +3,7 @@ Schema = {};
 Schema.UserProfile = new SimpleSchema({
     completeName: {
       type: String,
-			label: 'Complete Name',
+			label: 'Nome Completo',
 			optional: true
     },
 
@@ -27,7 +27,8 @@ Schema.User = new SimpleSchema({
     regEx: SimpleSchema.RegEx.Id
   },
   emails: {
-    type: [Object]
+    type: [Object],
+    optional: true
   },
   "emails.$.address": {
     type: String,
@@ -38,7 +39,17 @@ Schema.User = new SimpleSchema({
   },
 
   createdAt: {
-    type: Date
+    type: Date,
+    denyUpdate: true,
+    autoValue: function() {
+      if (this.isInsert) {
+        return new Date;
+      } else if (this.isUpsert) {
+        return {$setOnInsert: new Date};
+      } else {
+        this.unset();
+      }
+    }
   },
   profile: {
     type: Schema.UserProfile,
@@ -64,38 +75,30 @@ Schema.User = new SimpleSchema({
 
 Meteor.users.attachSchema(Schema.User);
 
-Meteor.users.allow({
-  insert: function (userId, user) {
-    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-      return true;
-    } else {
-      return false;
-    }
-  },
-
-  update: function (userId, user) {
-    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-      return true;
-    } else {
-      return false;
-    }
-  }
-});
-
-Meteor.users.deny({
-  insert: function (userId, user) {
-    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-      return false;
-    } else {
-      return true;
-    }
-  },
-
-  update: function (userId, user) {
-    if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-      return false;
-    } else {
-      return true;
-    }
-  }
-});
+// Meteor.users.allow({
+//   insert: function (userId, user) {
+//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+//       return true;
+//     }
+//   },
+//
+//   update: function (userId, user) {
+//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+//       return true;
+//     }
+//   }
+// });
+//
+// Meteor.users.deny({
+//   insert: function (userId, user) {
+//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+//       return false;
+//     }
+//   },
+//
+//   update: function (userId, user) {
+//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
+//       return false;
+//     }
+//   }
+// });
