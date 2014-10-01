@@ -5,3 +5,5 @@ AdminConfig = {
     Products: {}
   }
 };
+
+SimpleSchema.debug = true;
