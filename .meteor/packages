@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 iron:router
 aldeed:collection2
 aldeed:autoform
@@ -20,3 +19,5 @@ pinglamb:bootstrap3
 miguelvalverde:font-awesome-4.1.0
 mrt:loading
 sewdn:masked-input
+usefulio:sync-methods
+

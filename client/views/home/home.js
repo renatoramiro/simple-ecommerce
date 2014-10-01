@@ -24,7 +24,9 @@ Template.detailsProduct.events({
     var productData = { _id: product._id, name: product.name, price: product.price, quantity: 1}
 
     if(Session.get('carts') == null || Session.get('carts') == undefined || Carts.findOne({_id: Session.get('carts')}) == undefined) {
-        Session.set('carts', Carts.insert({}));
+        Meteor.call('createCart', function(error, result){
+          Session.set('carts', result);
+        });
     } else {
       Session.set('carts', Session.get('carts'));
     }

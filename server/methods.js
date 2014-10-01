@@ -1,4 +1,14 @@
 Meteor.methods({
+  createCart: function(){
+    var id = Carts.insert({});
+    console.log(new Date() + " : " + id);
+    return id;
+  },
+
+  removeCart: function(cartId){
+    Carts.remove({_id: cartId});
+  },
+
   updateIncCart: function (cartId, productId) {
     Carts.update({_id: cartId, 'products._id': productId}, { $inc: { 'products.$.quantity': 1} });
   },
