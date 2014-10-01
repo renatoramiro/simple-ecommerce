@@ -9,6 +9,6 @@
     {{> afQuickField name='quantity'}}
     {{> afFieldInput name="_id" type="hidden"}}
   </fieldset>
-  <button type="submit" class="btn btn-primary">Update</button>
+  <button type="submit" class="btn btn-primary"><i class="fa fa-spinner"></i> Atualizar</button> <a href="{{ pathFor 'showProduct'}}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
   {{/autoForm}}
 </template>
