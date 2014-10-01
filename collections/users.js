@@ -75,30 +75,12 @@ Schema.User = new SimpleSchema({
 
 Meteor.users.attachSchema(Schema.User);
 
-// Meteor.users.allow({
-//   insert: function (userId, user) {
-//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-//       return true;
-//     }
-//   },
-//
-//   update: function (userId, user) {
-//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-//       return true;
-//     }
-//   }
-// });
-//
-// Meteor.users.deny({
-//   insert: function (userId, user) {
-//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-//       return false;
-//     }
-//   },
-//
-//   update: function (userId, user) {
-//     if(Meteor.user() && Meteor.user().profile.permissao === 'admin'){
-//       return false;
-//     }
-//   }
-// });
+Meteor.users.deny({
+  insert: function (userId, user) {
+    return (Meteor.user().profile.permissao === 'cliente' || Meteor.user().profile.permissao === 'vendedor' || Meteor.user().profile.permissao == undefined);
+  },
+
+  update: function (userId, user) {
+    return (Meteor.user().profile.permissao === 'cliente' || Meteor.user().profile.permissao === 'vendedor' || Meteor.user().profile.permissao == undefined);
+  }
+});
