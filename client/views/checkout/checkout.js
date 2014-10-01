@@ -53,7 +53,7 @@ Template.checkout.events({
 					Errors.throw(error.message);
 				}
 				var cart = Session.get('carts');
-				Carts.remove({_id: cart});
+				Meteor.call('removeCart', cart);
 				Session.set('carts', null);
 				Router.go('showPurchase', {_id: result});
 			});

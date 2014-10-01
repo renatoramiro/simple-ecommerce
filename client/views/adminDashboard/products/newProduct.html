@@ -1,5 +1,5 @@
 <template name="newProduct">
 	<h2>Adicionar Novo Produto</h2>
 	<hr>
-	{{> quickForm collection="Products" id="insertProductForm" type="insert" omitFields="createdAt"}}
+	{{> quickForm collection="Products" id="insertProductForm" type="method" meteormethod="insertProduct" omitFields="createdAt"}}
 </template>

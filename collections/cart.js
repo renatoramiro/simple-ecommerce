@@ -42,12 +42,8 @@ Schemas.Cart = new SimpleSchema({
 
 Carts.attachSchema(Schemas.Cart);
 
-Carts.allow({
-  insert: function(userId, cart){
-    return true;
-  },
-
-  update: function(userId, cart){
-    return true;
-  }
-});
+// Carts.allow({
+//   insert: function (userId, cart) {
+//     return true;
+//   },
+// });

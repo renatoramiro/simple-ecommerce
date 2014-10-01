@@ -1,11 +1,9 @@
 Meteor.methods({
-  createCart: function(){
-    var id = Carts.insert({});
-    console.log(new Date() + " : " + id);
-    return id;
+  createCart: function () {
+    return Carts.insert({});
   },
 
-  removeCart: function(cartId){
+  removeCart: function (cartId, productId) {
     Carts.remove({_id: cartId});
   },
 
@@ -29,6 +27,11 @@ Meteor.methods({
   	Meteor.users.update({_id: userId}, {$set: {'profile.completeName': completeName}});
   },
 
+  atualizarUser: function (user) {
+    console.log('Teste');
+    // Meteor.users.update({_id: user._id}, {$set: {'profile.completeName': user.profile.completeName, 'profile.creditLimit': user.profile.creditLimit}});
+  },
+
   newOrder: function (userId, products, opcaoPagamento) {
     var user = Meteor.users.findOne({_id: userId});
     var total = 0.0;
@@ -45,4 +48,12 @@ Meteor.methods({
   updateRoleUser: function (userId, role) {
     Meteor.users.update({_id: userId}, {$set: {'profile.permissao': role}});
   },
+
+  insertProduct: function (data) {
+    return Products.insert(data);
+  },
+
+  updateProduct: function (product) {
+    return Products.update({_id: product._id}, {$set: {name: product.name, price: product.price, quantity: product.quantity}});
+  }
 });

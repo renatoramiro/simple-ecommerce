@@ -4,7 +4,7 @@ Template.home.helpers({
   },
 
   name: function(){
-    return this.name.substring(0, 15);
+    return this.name.substring(0, 13);
   }
 });
 
@@ -18,15 +18,20 @@ Template.detailsProduct.helpers({
   }
 });
 
+Meteor.methods({
+  createCart: function () {
+    var cartId = Carts.insert({});
+    Session.set('carts', cartId);
+  }
+});
+
 Template.detailsProduct.events({
   'click #cart': function(){
     var product = Products.findOne({_id: this._id});
     var productData = { _id: product._id, name: product.name, price: product.price, quantity: 1}
 
     if(Session.get('carts') == null || Session.get('carts') == undefined || Carts.findOne({_id: Session.get('carts')}) == undefined) {
-        Meteor.call('createCart', function(error, result){
-          Session.set('carts', result);
-        });
+        Meteor.call('createCart');
     } else {
       Session.set('carts', Session.get('carts'));
     }
