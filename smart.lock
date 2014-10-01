@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "stale-session": {}
+    },
+    "packages": {
+      "stale-session": {
+        "git": "https://github.com/lindleycb/meteor-stale-session.git",
+        "tag": "v1.0.4",
+        "commit": "17e4c3fbef8297387594599c5b806e334202b582"
+      }
+    }
+  }
+}

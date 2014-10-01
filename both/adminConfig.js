@@ -1,9 +1,13 @@
-AdminConfig = {
-  name: 'My App',
-  adminEmails: ['renato@mail.com'],
-  collections: {
-    Products: {}
-  }
-};
+// AdminConfig = {
+//   name: 'My App',
+//   adminEmails: ['renato@mail.com'],
+//   collections: {
+//     Products: {}
+//   }
+// };
+//
+// SimpleSchema.debug = true;
 
-SimpleSchema.debug = true;
+Accounts.config({
+   loginExpirationInDays: 1
+});
