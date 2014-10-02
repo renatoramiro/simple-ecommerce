@@ -28,7 +28,18 @@ Meteor.methods({
   },
 
   atualizarUser: function (user) {
-    Meteor.users.update({_id: user._id}, {$set: {'profile.completeName': user.profile.completeName, 'profile.creditLimit': user.profile.creditLimit}});
+    var completeName = '';
+    var creditLimit = '';
+    if (user.profile != undefined ) {
+      if(user.profile.completeName != undefined){
+        completeName = user.profile.completeName;
+      }
+      if(user.profile.creditLimit != undefined){
+        creditLimit = user.profile.creditLimit;
+      }
+    }
+
+    Meteor.users.update({_id: user._id}, {$set: {'profile.completeName': completeName, 'profile.creditLimit': creditLimit}});
   },
 
   newOrder: function (userId, products, opcaoPagamento) {

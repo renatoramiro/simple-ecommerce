@@ -7,8 +7,6 @@ meteor-platform
 iron:router
 aldeed:collection2
 aldeed:autoform
-benjaminrh:user-session
-u2622:persistent-session
 lepozepo:accounting
 accounts-password
 accounts-base
@@ -19,5 +17,4 @@ pinglamb:bootstrap3
 miguelvalverde:font-awesome-4.1.0
 mrt:loading
 sewdn:masked-input
-alethes:pages
-
+u2622:persistent-session

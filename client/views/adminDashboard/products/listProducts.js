@@ -1,5 +1,5 @@
 Template.listProducts.helpers({
 	products: function () {
-		return Products.find();
+		return Products.find({}, {sort: {name: 1}});
 	}
 });
