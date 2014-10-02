@@ -1,0 +1,31 @@
+<template name="allOrders">
+  <h2>Lista de Pedidos</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Criada em</th>
+        <th>Usuário</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this}}
+      <tr>
+        <td>{{_id}}</td>
+        <td>{{ formatarData createdAt}}</td>
+        <td>{{ userCompleteName}}</td>
+        <td>
+          <a href="" class="btn btn-default btn-xs"><i class="fa fa-eye"></i> Ver</a>
+        </td>
+      </tr>
+      {{/each}}
+      {{> pedidos}}
+    </tbody>
+  </table>
+</template>
+
+<template name="pedidos">
+  {{> pages}}
+  {{> pagesNav}}  <!--Bottom navigation-->
+</template>

@@ -14,6 +14,10 @@ Meteor.publish('purchases', function (userId) {
 	return Orders.find({userId: userId});
 });
 
+Meteor.publish('allOrders', function (userId) {
+  return Orders.find({});
+});
+
 Meteor.publish('showPurchase', function (userId, orderId) {
 	return Orders.find({_id: orderId, userId: userId});
 });

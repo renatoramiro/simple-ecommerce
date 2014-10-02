@@ -98,4 +98,11 @@ Router.map(function(){
     data: function(){ return Products.findOne({_id: this.params._id})},
     layoutTemplate: 'adminLayout',
   });
+
+  this.route('allOrders', {
+    path: '/admin/orders',
+    waitOn: function(){ return Meteor.subscribe('allOrders'); },
+    data: function(){ return Orders.find({}); },
+    layoutTemplate: 'adminLayout',
+  });
 });
