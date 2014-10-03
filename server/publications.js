@@ -14,8 +14,11 @@ Meteor.publish('purchases', function (userId) {
 	return Orders.find({userId: userId});
 });
 
-Meteor.publish('allOrders', function (userId) {
-  return Orders.find({});
+Meteor.publish('allOrders', function (limit) {
+	if (limit > Orders.find().count()) {
+		limit = 0;
+	}
+  return Orders.find({}, {limit: limit});
 });
 
 Meteor.publish('showPurchase', function (userId, orderId) {
