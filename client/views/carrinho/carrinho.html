@@ -3,31 +3,33 @@
   <div class="row">
     <div class="col-md-12">
       {{#if cart.products}}
-      <table class="table">
-        <thead>
-          <th>Nome</th>
-          <th>Preço</th>
-          <th>Quantidade</th>
-          <th></th>
-          <th></th>
-        </thead>
-        <tbody>
-          {{#each products}}
-          <tr>
-            <td>{{name}}</td>
-            <td>{{ duasCasas price}}</td>
-            <td>{{quantity}}</td>
-            <td>
-              <input type="number" id="updateQuantity_{{_id}}" value="{{quantity}}" style="width: 15%;" min="0">
-              <a href="#" class="btn btn-primary btn-xs" id="updateCart"><i class="fa fa-refresh"></i></a>
-            </td>
-            <td>
-              <a href="#" id="removeProduct" class="btn btn-danger btn-xs" title="Remover item do carrinho"><i class="glyphicon glyphicon-trash"></i></a>
-            </td>
-          </tr>
-          {{/each}}
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            {{#each products}}
+            <tr>
+              <td>{{name}}</td>
+              <td>{{ duasCasas price}}</td>
+              <td>{{quantity}}</td>
+              <td>
+                <input type="number" id="updateQuantity_{{_id}}" value="{{quantity}}" min="0">
+                <a href="#" class="btn btn-primary btn-xs" id="updateCart"><i class="fa fa-refresh"></i></a>
+              </td>
+              <td>
+                <a href="#" id="removeProduct" class="btn btn-danger btn-xs" title="Remover item do carrinho"><i class="glyphicon glyphicon-trash"></i></a>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
       <p class="text-right lead text-success"><strong>Total: {{duasCasas total}}</strong></p>
       <hr>
       <p class="text-right">
