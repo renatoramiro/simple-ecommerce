@@ -102,7 +102,6 @@ Router.map(function(){
   this.route('allOrders', {
     path: '/admin/orders',
     waitOn: function(){ return Meteor.subscribe('allOrders'); },
-    data: function(){ return Orders.find({}, {sort: {createdAt: -1}}); },
     layoutTemplate: 'adminLayout',
   });
 });

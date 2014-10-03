@@ -29,7 +29,7 @@ Template.allOrders.events({
 
 Template.allOrders.helpers({  
   orders: function() {
-    return Orders.find({ }, { limit: Session.get('limit') });
+    return Orders.find({ }, { sort: {createdAt: -1}, limit: Session.get('limit') });
   },
 
   limite: function () {
