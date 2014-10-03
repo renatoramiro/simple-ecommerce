@@ -1,0 +1,8 @@
+#iron-router-progress {
+    background-color : #7BF;
+    box-shadow       : 0 0 5px #FFF;
+}
+
+#iron-router-progress.spinner:before {
+    border-color : #7BF;
+}

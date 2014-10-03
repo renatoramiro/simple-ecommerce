@@ -15,8 +15,9 @@ bruz:bootstrap3-errors
 mrt:moment
 pinglamb:bootstrap3
 miguelvalverde:font-awesome-4.1.0
-mrt:loading
 sewdn:masked-input
 u2622:persistent-session
 alethes:pages
+mrt:iron-router-progress
+sacha:spin
 
