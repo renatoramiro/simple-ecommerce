@@ -3,20 +3,20 @@
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
         <th>Criada em</th>
         <th>Usuário</th>
         <th>Forma de Pagamento</th>
+        <th>Total R$</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       {{#each orders}}
       <tr>
-        <td>{{_id}}</td>
         <td>{{ formatarData createdAt}}</td>
         <td>{{ userCompleteName}}</td>
         <td>{{formaDePagamento}}</td>
+        <td>{{duasCasas total}}</td>
         <td>
           <a href="" class="btn btn-default btn-xs"><i class="fa fa-eye"></i> Ver</a>
         </td>
