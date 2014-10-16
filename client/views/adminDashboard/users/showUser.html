@@ -1,19 +1,21 @@
 <template name="showUser">
-	<h2>Detalhes <small>{{user.profile.completeName}}</small></h2>
+	{{#with user}}
+	<h2>Detalhes <small>{{profile.completeName}}</small></h2>
 	<p>
 		<strong>Email: </strong>
-		{{#each user.emails}}
+		{{#each emails}}
 			{{address}}
 		{{/each}}
 	</p>
-	<p><strong>Limite de Crédito: </strong>{{duasCasas user.profile.creditLimit}}</p>
-	<p><strong>Permissão: </strong>{{user.profile.permissao}}</p>
+	<p><strong>Limite de Crédito: </strong>{{duasCasas profile.creditLimit}}</p>
+	<p><strong>Permissão: </strong>{{profile.permissao}}</p>
 	<hr>
 	<p>
 		<a href="{{ pathFor 'dashboard' }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Voltar para Lista de Usuários</a>
-		<a href="/admin/users/{{user._id}}/edit" class="btn btn-default"><i class="fa fa-edit"></i> Editar Informações</a>
-		<a href="/admin/users/roles/{{user._id}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i> Editar Permissão</a>
+		<a href="{{ pathFor 'editUser'}}" class="btn btn-default"><i class="fa fa-edit"></i> Editar Informações</a>
+		<a href="{{ pathFor 'editUserRoles'}}" class="btn btn-warning"><i class="fa fa-edit"></i> Editar Permissão</a>
 	</p>
+	{{/with}}
 	<hr />
 	<h4>Últimos 5 Pedidos</h4>
 	<table class="table">

@@ -1,6 +1,6 @@
 Template.showUser.helpers({
 	user: function(){
-		return Meteor.users.findOne({});
+		return Meteor.users.findOne({_id: Router.current().params._id});
 	},
 	
 	orders: function () {
