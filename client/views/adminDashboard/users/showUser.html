@@ -1,17 +1,39 @@
 <template name="showUser">
-	<h2>Detalhes <small>{{profile.completeName}}</small></h2>
+	<h2>Detalhes <small>{{user.profile.completeName}}</small></h2>
 	<p>
 		<strong>Email: </strong>
-		{{#each emails}}
+		{{#each user.emails}}
 			{{address}}
 		{{/each}}
 	</p>
-	<p><strong>Limite de Crédito: </strong>{{duasCasas profile.creditLimit}}</p>
-	<p><strong>Permissão: </strong>{{profile.permissao}}</p>
+	<p><strong>Limite de Crédito: </strong>{{duasCasas user.profile.creditLimit}}</p>
+	<p><strong>Permissão: </strong>{{user.profile.permissao}}</p>
 	<hr>
 	<p>
 		<a href="{{ pathFor 'dashboard' }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Voltar para Lista de Usuários</a>
-		<a href="{{ pathFor 'editUser'}}" class="btn btn-default"><i class="fa fa-edit"></i> Editar Informações</a>
-		<a href="{{ pathFor 'editUserRoles' }}" class="btn btn-warning"><i class="fa fa-edit"></i> Editar Permissão</a>
+		<a href="/admin/users/{{user._id}}/edit" class="btn btn-default"><i class="fa fa-edit"></i> Editar Informações</a>
+		<a href="/admin/users/roles/{{user._id}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i> Editar Permissão</a>
 	</p>
+	<hr />
+	<h4>Últimos 5 Pedidos</h4>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Data da Compra</th>
+				<th>Forma de Pagamento</th>
+				<th>Total R$</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each orders}}
+			<tr>
+				<td>{{formatarData createdAt}}</td>
+				<td>{{formaDePagamento}}</td>
+				<td>{{duasCasas total}}</td>
+				<td><a href="{{ pathFor 'showAdminOrder'}}" class="btn btn-default btn-xs"><i class="fa fa-eye"></i> Ver</a></td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
 </template>

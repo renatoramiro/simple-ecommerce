@@ -1,0 +1,33 @@
+<template name="showAdminOrder">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Pedido <small>{{_id}}</small></h2>
+			<p class="lead">
+				Data da compra: {{ formatarData createdAt}}<br>
+				Forma de Pagamento: {{formaDePagamento}}
+			</p>
+			<br><br>
+			<table class="table">
+				<thead>
+					<th>Nome</th>
+					<th>Preço</th>
+					<th>Quantidade</th>
+				</thead>
+				<tbody>
+					{{#each products}}
+					<tr>
+						<td>{{name}}</td>
+						<td>{{ duasCasas price}}</td>
+						<td>{{quantity}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			<p class="text-right lead text-success"><strong>Total: {{duasCasas total}}</strong></p>
+			<hr>
+			<p class="text-left">
+				<a href="{{ pathFor 'allOrders'}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Voltar para pedidos</a>
+			</p>
+		</div>
+	</div>
+</template>

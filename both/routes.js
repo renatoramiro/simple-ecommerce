@@ -58,8 +58,8 @@ Router.map(function(){
   this.route('showUser', {
     path: '/admin/users/:_id',
     layoutTemplate: 'adminLayout',
-    waitOn: function(){ return Meteor.subscribe('showUser', this.params._id); },
-    data: function() { return Meteor.users.findOne({_id: this.params._id}); }
+    waitOn: function(){ return [Meteor.subscribe('showUser', this.params._id), Meteor.subscribe('purchases', this.params._id)]; },
+    data: function() { return [Meteor.users.findOne({_id: this.params._id}), Orders.find({userId: this.params._id})]; }
   });
 
   this.route('editUserRoles', {
@@ -103,6 +103,13 @@ Router.map(function(){
   this.route('allOrders', {
     path: '/admin/orders',
     waitOn: function(){ return Meteor.subscribe('allOrders'); },
+    layoutTemplate: 'adminLayout',
+  });
+
+  this.route('showAdminOrder', {
+    path: '/admin/order/:_id',
+    waitOn: function(){ return Meteor.subscribe('showAdminPurchase', this.params._id); },
+    data: function(){ return Orders.findOne({_id: this.params._id}); },
     layoutTemplate: 'adminLayout',
   });
 });
