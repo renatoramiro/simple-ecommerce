@@ -1,6 +1,6 @@
 Router.configure({
   layoutTemplate: 'application',
-  loadingTemplate: 'loading',
+  // loadingTemplate: 'loading',
   waitOn: function(){return [Meteor.subscribe('products'), Meteor.subscribe('cart', Session.get('carts'))]},
 });
 
@@ -11,7 +11,7 @@ Router.map(function(){
 
   this.route('home', {
     path: '/',
-    waitOn: function(){return Meteor.subscribe('products')}
+    waitOn: function(){return Meteor.subscribe('products')},
   });
 
   this.route('detailsProduct', {

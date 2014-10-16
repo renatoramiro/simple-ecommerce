@@ -4,12 +4,12 @@ incrementLimit = function() {
   Session.set('limit', newLimit);
 }
 
-Template.allOrders.created = function () {
-	Session.setTemp('limit', 5);
-	Tracker.autorun(function (argument) {
-		Meteor.subscribe('allOrders', Session.get('limit'));
-	});
-}
+// Template.allOrders.created = function () {
+// 	Session.setTemp('limit', 5);
+// 	Tracker.autorun(function (argument) {
+// 		Meteor.subscribe('allOrders', Session.get('limit'));
+// 	});
+// }
 
 // Template.allOrders.rendered = function() {  
 //   // is triggered every time we scroll
@@ -42,5 +42,12 @@ Template.allOrders.helpers({
       total += product.price * product.quantity;
     });
     return total;
-  }
+  },
+	
+	created: function(){
+		Session.setTemp('limit', 5);
+		Tracker.autorun(function (argument) {
+			Meteor.subscribe('allOrders', Session.get('limit'));
+		});
+	}
 });

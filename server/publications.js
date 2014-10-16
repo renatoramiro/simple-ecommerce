@@ -7,7 +7,11 @@ Meteor.publish('detailsProduct', function(productId){
 });
 
 Meteor.publish('cart', function(cartId){
-  return Carts.find({_id: cartId});
+	if(cartId === undefined){
+		return [];
+	} else {
+		return Carts.find({_id: cartId});	
+	}
 });
 
 Meteor.publish('purchases', function (userId) {
