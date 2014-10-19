@@ -4,7 +4,8 @@
 			<h2>Pedido <small>{{_id}}</small></h2>
 			<p class="lead">
 				Data da compra: {{ formatarData createdAt}}<br>
-				Forma de Pagamento: {{formaDePagamento}}
+				Forma de Pagamento: {{formaDePagamento}}<br>
+				Usuário: <a href="{{ linkUser}}">{{this.userCompleteName}}</a>
 			</p>
 			<br><br>
 			<table class="table">
@@ -23,7 +24,7 @@
 					{{/each}}
 				</tbody>
 			</table>
-			<p class="text-right lead text-success"><strong>Total: {{duasCasas total}}</strong></p>
+			<p class="text-right lead text-success"><strong>Total: {{somaProdutos this.products}}</strong></p>
 			<hr>
 			<p class="text-left">
 				<a href="{{ pathFor 'allOrders'}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Voltar para pedidos</a>
