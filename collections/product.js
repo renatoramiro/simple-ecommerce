@@ -5,7 +5,8 @@ Schemas = {};
 Schemas.Products = new SimpleSchema({
   _id: {
     type: String,
-    regEx: SimpleSchema.RegEx.Id
+    regEx: SimpleSchema.RegEx.Id,
+    optional: true
   },
   
   name: {
