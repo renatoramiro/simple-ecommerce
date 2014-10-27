@@ -1,4 +1,5 @@
 Products = new Meteor.Collection('products');
+GroundDB(Products);
 
 Schemas = {};
 

@@ -1,4 +1,5 @@
 Orders = new Meteor.Collection('orders');
+GroundDB(Orders);
 
 Schemas = {}
 

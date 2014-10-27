@@ -27,6 +27,13 @@ email@1.0.4
 fastclick@1.0.1
 follower-livedata@1.0.2
 geojson-utils@1.0.1
+ground:db@0.0.9
+ground:dictionary@0.0.1
+ground:localstorage@0.0.2
+ground:minimax@0.0.2
+ground:servertime@0.0.0
+ground:store@0.0.0
+ground:util@0.0.1
 handlebars@1.0.1
 html-tools@1.0.2
 htmljs@1.0.2
@@ -58,6 +65,7 @@ npm-bcrypt@0.7.7
 observe-sequence@1.0.3
 ordered-dict@1.0.1
 pinglamb:bootstrap3@3.2.1
+raix:eventemitter@0.0.2
 random@1.0.1
 reactive-dict@1.0.4
 reactive-var@1.0.3
