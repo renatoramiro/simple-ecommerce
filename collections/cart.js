@@ -1,5 +1,4 @@
 Carts = new Meteor.Collection('carts');
-GroundDB(Carts);
 
 Schemas = {}
 
